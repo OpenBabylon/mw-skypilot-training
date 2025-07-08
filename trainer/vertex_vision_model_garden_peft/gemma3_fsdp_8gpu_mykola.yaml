@@ -1,0 +1,16 @@
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+mixed_precision: bf16               # bf16 = bfloat16
+
+num_processes: 8
+num_machines: 1
+main_training_function: main        # leave as default
+
+use_cpu: false
+
+fsdp_config:
+  sharding_strategy: "full_shard"
+  activation_checkpointing: true
+  offload_params: false
+
+downcast_bf16: false

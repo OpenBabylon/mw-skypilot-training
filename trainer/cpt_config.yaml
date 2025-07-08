@@ -1,0 +1,30 @@
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+mixed_precision: bf16               # bf16 = bfloat16
+
+num_processes: 8
+main_training_function: main        # leave as default
+
+use_cpu: false
+
+downcast_bf16: 'no'
+enable_cpu_affinity: false
+fsdp_config:
+  fsdp_backward_prefetch: BACKWARD_PRE
+  fsdp_cpu_ram_efficient_loading: true
+  fsdp_forward_prefetch: true
+  fsdp_offload_params: false
+  fsdp_sharding_strategy: HYBRID_SHARD
+  fsdp_activation_checkpointing_policy:
+    offload_to_cpu: false
+  fsdp_state_dict_type: SHARDED_STATE_DICT
+  fsdp_sync_module_states: true
+  fsdp_use_orig_params: true
+  fsdp_activation_checkpointing: true
+main_training_function: main
+mixed_precision: bf16
+machine_rank: 0
+num_machines: 1
+num_processes: 8
+rdzv_backend: static
+same_network: true

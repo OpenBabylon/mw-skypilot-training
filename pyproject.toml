@@ -1,0 +1,28 @@
+[project]
+name = "multi-worker-gemma3-pretrain"
+version = "0.1.0"
+description = "Distributed training for Gemma3"
+readme = "README.md"
+requires-python = "==3.10.17"
+dependencies = [
+    "accelerate>=1.8.1",
+    "absl_py>=2.2.2",
+    "datasets>=3.6.0",
+    "deepspeed>=0.17.1",
+    "huggingface_hub>=0.33.1",
+    "protobuf>=3.20.3",
+    "transformers>=4.53.0",
+    "trl>=0.9.6,<0.13.0",
+    "peft>=0.15.2",
+    "pip",
+    "evaluate>=0.4.4",
+    "numpy==1.25.2",
+    "google-cloud-aiplatform>=1.101.0",
+    "hf-transfer>=0.1.9",
+    "setuptools>=80.9.0",
+    "wandb>=0.21.0",
+    "wheel"
+]
+
+[dependency-groups]
+dev = ["nvitop>=1.5.1"]
